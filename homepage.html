@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" 
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+          crossorigin="anonymous">
+
+    <style>
+        body {
+            background: url("background-img.jpg");
+        }
+        .center-div {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align:center;
+            background-color:white;
+            padding-bottom:10px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid" style="margin:20px;">
+        <div class="row">
+            <div class="col-lg-6 center-div">
+
+                <label>Your Megssage <textarea id="msg1" cols="100" rows="5"></textarea></label>
+                <button class="btn btn-primary" onclick="encryptMessage()">Encrypt</button>
+
+            </div>
+
+
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-6 center-div">
+
+                <label>Encrypted Message <textarea id="res" cols="100" rows="5"></textarea></label>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+    <script>
+            function encryptMessage() {
+                var message = document.getElementById("msg1");
+                var encrbox = document.getElementById("res");
+
+                //encrbox.value = asciiencrypt(message.value);
+                encrbox.value = btoa(message.value);
+
+
+            }
+            function asciiencrypt(mesg) {
+                var encrypedMes = "";
+
+                for (var i = 0; i < mesg.length; i++) {
+
+                    var asciiVal = mesg.charCodeAt(i);
+                    encrypedMes += asciiVal;
+
+                }
+                return encrypedMes;
+            }
+    </script>
+</body>
+
+</html>
